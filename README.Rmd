@@ -1,0 +1,32 @@
+---
+title: "README"
+author: "Isabelle Boulangeat"
+date: "31/-1/2022"
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
+    variant: markdown_github
+editor_options:
+  chunk_output_type: console
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+# library(kableExtra)
+knitr::opts_chunk$set(echo = TRUE)
+# library(Jmisc)
+library(tidyr)
+sapply(list.files("R_fct"), function(x)source(paste0("R_fct/",x)))
+#data = readRDS("data.rds")
+#source("workflow1_biomasse.r")
+
+```
+## Analyse communautes vegetales
+```{r ,fig=TRUE}
+#ggplot(dat_long, aes(fill=stat, x=ref_typoveg, y=value)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  facet_wrap(~stat, ncol = 1, scales = "free")
+
+```
